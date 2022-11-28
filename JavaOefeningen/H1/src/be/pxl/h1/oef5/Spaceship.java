@@ -22,11 +22,12 @@ public class Spaceship {
     }
 
     public boolean isDestroyed() {
-        if (this.hits >= 5) {
+        return this.hits >= 5;
+        /* if (this.hits >= 5) {
             return true;
         } else {
             return false;
-        }
+        } */
     }
 
     public String getName() {

@@ -6,7 +6,7 @@ public class SpaceshipApp {
         shipOne.setName("Milennium Falcon");
 
         Spaceship shipTwo = new Spaceship();
-        shipTwo.setName("LeBron James");
+        shipTwo.setName("Star Destroyer");
 
         shipOne.fire(shipTwo);
         shipTwo.fire(shipOne);
@@ -23,4 +23,3 @@ public class SpaceshipApp {
         System.out.println(shipTwo.getName() + " is destroyed? " + shipTwo.isDestroyed());
     }
 }
-// worked the first fucking time! yeah bitch, programming!

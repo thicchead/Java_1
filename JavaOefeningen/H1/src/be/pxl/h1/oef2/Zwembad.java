@@ -6,15 +6,15 @@ public class Zwembad {
     private double diepte;
 
     public double getVolume() {
-        return lengte * breedte * diepte;
+        return lengte * breedte * diepte * 1000;
     }
 
     public double getVolumeWater() {
-        return getVolume() * 0.98 * 1000;
-    }
+        return getVolume() * 0.98;
+    } // maal duizend twee keer gedaan, moest in getVolume() staan
 
     public double getVolumeOntsmettingsmiddel() {
-        return getVolume() * 0.02 * 1000;
+        return getVolume() * 0.02;
     }
 
     public double getLengte() {
