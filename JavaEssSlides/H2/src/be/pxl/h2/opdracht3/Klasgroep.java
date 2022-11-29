@@ -2,27 +2,24 @@ package be.pxl.h2.opdracht3;
 
 public class Klasgroep {
     public static final int MAX_STUDENTEN = 40;
-    private String klasgroep;
+    private String klasnaam;
     private int aantalStudenten;
-
-    public Klasgroep(String klasgroep, int aantalStudenten) {
-        this.klasgroep = klasgroep;
-        this.aantalStudenten = aantalStudenten;
-        if (aantalStudenten > MAX_STUDENTEN) {
-            this.aantalStudenten = MAX_STUDENTEN;
-        }
-    }
 
     public Klasgroep() {
         this("1TINx", 0);
     }
 
-    public String getKlasgroep() {
-        return klasgroep;
+    public Klasgroep(String klasnaam, int aantalStudenten) {
+        setKlasnaam(klasnaam);
+        setAantalStudenten(aantalStudenten);
     }
 
-    public void setKlasgroep(String klasgroep) {
-        this.klasgroep = klasgroep;
+    public String getKlasnaam() {
+        return klasnaam;
+    }
+
+    public void setKlasnaam(String klasnaam) {
+        this.klasnaam = klasnaam;
     }
 
     public int getAantalStudenten() {
@@ -31,5 +28,8 @@ public class Klasgroep {
 
     public void setAantalStudenten(int aantalStudenten) {
         this.aantalStudenten = aantalStudenten;
+        if (aantalStudenten > MAX_STUDENTEN) {
+            this.aantalStudenten = MAX_STUDENTEN;
+        }
     }
 }

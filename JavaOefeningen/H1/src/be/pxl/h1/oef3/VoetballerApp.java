@@ -36,4 +36,4 @@ public class VoetballerApp {
         }
     }
 }
-// tssen twee nextlines, een nextline extra tussenvoegen
+// tussen twee nextlines, een nextline extra tussenvoegen

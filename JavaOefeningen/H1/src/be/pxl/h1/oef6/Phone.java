@@ -6,7 +6,7 @@ public class Phone {
     private int numberOfCalls;
     private int numberOfFreeCalls;
 
-    public void Call(String telephoneNr) {
+    public void call(String telephoneNr) {
         if (telephoneNr.equals("112") || telephoneNr.equals("102") || telephoneNr.equals("070245245")) {
             numberOfFreeCalls++;
         } else {
@@ -14,6 +14,7 @@ public class Phone {
         }
         System.out.println("Calling " + telephoneNr);
     }
+
     public double getCost() {
         double totalCosts = 0;
         if (provider.equals("Floximus")) {
@@ -25,8 +26,10 @@ public class Phone {
         } else {
             totalCosts = .21 * numberOfCalls;
         }
+
         return totalCosts;
     }
+
     public void reset() {
         numberOfCalls = 0;
         numberOfFreeCalls = 0;

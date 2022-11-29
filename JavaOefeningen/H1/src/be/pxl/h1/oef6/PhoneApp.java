@@ -3,14 +3,15 @@ package be.pxl.h1.oef6;
 public class PhoneApp {
     public static void main(String[] args) {
         Phone phone = new Phone();
-        phone.setProvider("");
+        phone.setProvider("Floximus");
 
-        for (int i = 1; i <= 21; i++) {
-            int number = 12123409;
+        for (int i = 0; i <= 20; i++) {
+            int number = 12123410;
             number += i;
-            phone.Call("0" + Integer.toString(number));
+            phone.call("0" + Integer.toString(number)); // moeten opzoeken --> andere manier?
         }
-        phone.Call("070245245");
+
+        phone.call("070245245");
 
         System.out.printf("Phone cost: €%.2f%n", phone.getCost());
         phone.reset();
