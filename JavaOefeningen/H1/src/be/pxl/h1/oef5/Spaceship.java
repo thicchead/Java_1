@@ -5,15 +5,15 @@ public class Spaceship {
     private int hits;
     private boolean shieldOn;
 
-    public void setShieldOn() {
-        System.out.println(name + " puts its shield on");
-        setShieldOn(true);
+//    public void setShieldOn() {
+//        System.out.println(name + " puts its shield on");
+//        setShieldOn(true);
         // boolean waarde meegeven
 //        if (shiledOn) {
 //        System.out.println(name + "sets shield on");
 //    }
 //    this.shieldOn = shieldOn
-    }
+//    }
 
     public void fire(Spaceship otherShip) {
         if (! otherShip.isShieldOn()) {
@@ -56,6 +56,11 @@ public class Spaceship {
     }
 
     public void setShieldOn(boolean shieldOn) {
-        this.shieldOn = shieldOn;
+        if (shieldOn) {
+            this.shieldOn = true;
+            System.out.println(this.name + " sets its shield on!");
+        } else {
+            this.shieldOn = false;
+        }
     }
 }

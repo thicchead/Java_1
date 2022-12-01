@@ -11,7 +11,7 @@ public class SpaceshipApp {
         shipOne.fire(shipTwo);
         shipTwo.fire(shipOne);
 
-        shipOne.setShieldOn();
+        shipOne.setShieldOn(true);
 
         shipTwo.fire(shipOne);
         for (int i = 0; i < 5; i++) {

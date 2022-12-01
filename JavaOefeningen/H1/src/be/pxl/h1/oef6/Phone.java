@@ -8,12 +8,23 @@ public class Phone {
 
     public void call(String telephoneNr) {
         // methode maken die freeCalls bijhoudt (boolean met een array van freeNumbers --> private), hier oproepen dan
-        if (telephoneNr.equals("112") || telephoneNr.equals("102") || telephoneNr.equals("070245245")) {
+        // FINISHED
+        if (isFreeNumber(telephoneNr)) {
             numberOfFreeCalls++;
         } else {
             numberOfCalls++;
         }
         System.out.println("Calling " + telephoneNr);
+    }
+
+    private boolean isFreeNumber(String telephoneNr) {
+        String[] freeNumbers = {"112", "102", "070245245"};
+
+        boolean isFree = false;
+        for (String number : freeNumbers) {
+            isFree = number.equals(telephoneNr);
+        }
+        return isFree;
     }
 
     public double getCost() {
