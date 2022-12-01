@@ -14,10 +14,9 @@ public class SpaceshipApp {
         shipOne.setShieldOn();
 
         shipTwo.fire(shipOne);
-        shipOne.fire(shipTwo);
-        shipOne.fire(shipTwo);
-        shipOne.fire(shipTwo);
-        shipOne.fire(shipTwo);
+        for (int i = 0; i < 5; i++) {
+            shipOne.fire(shipTwo);
+        }
 
         System.out.println(shipOne.getName() + " is destroyed? " + shipOne.isDestroyed());
         System.out.println(shipTwo.getName() + " is destroyed? " + shipTwo.isDestroyed());

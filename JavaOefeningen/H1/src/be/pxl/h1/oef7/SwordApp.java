@@ -19,6 +19,8 @@ public class SwordApp {
         int highestDurability = 0;
         String bestSword = "";
 
+        // beste zwaard bijhouden (plaats 0), itereren door array, als durability hoger is, beste zwaard naar die veranderen
+
         for (int i = 0; i < swordArray.length; i++) {
             int durability = swordArray[i].getDurability();
             String bestMaterial = swordArray[i].getMaterial();

@@ -8,6 +8,11 @@ public class Spaceship {
     public void setShieldOn() {
         System.out.println(name + " puts its shield on");
         setShieldOn(true);
+        // boolean waarde meegeven
+//        if (shiledOn) {
+//        System.out.println(name + "sets shield on");
+//    }
+//    this.shieldOn = shieldOn
     }
 
     public void fire(Spaceship otherShip) {

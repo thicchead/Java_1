@@ -7,6 +7,7 @@ public class Phone {
     private int numberOfFreeCalls;
 
     public void call(String telephoneNr) {
+        // methode maken die freeCalls bijhoudt (boolean met een array van freeNumbers --> private), hier oproepen dan
         if (telephoneNr.equals("112") || telephoneNr.equals("102") || telephoneNr.equals("070245245")) {
             numberOfFreeCalls++;
         } else {
@@ -31,8 +32,8 @@ public class Phone {
     }
 
     public void reset() {
-        numberOfCalls = 0;
-        numberOfFreeCalls = 0;
+        setNumberOfCalls(0);
+        setNumberOfFreeCalls(0);
     }
 
     public String getNumber() {
