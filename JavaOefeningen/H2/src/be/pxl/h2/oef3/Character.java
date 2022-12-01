@@ -45,7 +45,7 @@ public class Character {
     }
 
     public void addTitle(String title) {
-        
+
     }
 
     public String toString() {
@@ -58,3 +58,4 @@ public class Character {
         return eindString;
     }
 }
+// addtitle fixen, tostring mooi maken (niet printen als het leeg is)
