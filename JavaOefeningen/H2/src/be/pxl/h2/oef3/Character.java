@@ -44,18 +44,42 @@ public class Character {
         this.episodes = episodes;
     }
 
-    public void addTitle(String title) {
+    public boolean getDate() {
+        return firstSeason != 0 || lastSeason != 0 || episodes != 0;
+    }
 
+    public void addTitle(String title) {
+        int i = 0;
+        if (titles[i] == null) {
+            titles[i] = title;
+        } else if (titles[i + 1] == null) {
+            titles[i + 1] = title;
+        } else {
+            titles[i + 2] = title;
+        }
     }
 
     public String toString() {
-        String eindString = String.format("%s \"%s\" %s of house %s%n", firstName, nickName, lastName, house);
-        for (String title : titles) {
-            eindString += String.format("*** %s%n", title);
+        String eindString = "";
+        if (nickName.equals("")) {
+            eindString += String.format("%s %s of house %s%n", firstName, lastName, house);
+        } else {
+            eindString += String.format("%s \"%s\" %s of house %s%n", firstName, nickName, lastName, house);
         }
-        eindString += String.format("Played by: %s in season %d-%d (%d episodes)", portrayedBy, firstSeason, lastSeason, episodes);
+        for (String title : titles) {
+            if (title == null) {
+                eindString += "";
+            } else {
+                eindString += String.format("*** %s%n", title);
+            }
+        }
+        if (!getDate()) {
+            eindString += String.format("Played by: %s", portrayedBy);
+        } else {
+            eindString += String.format("Played by: %s in season %d-%d (%d episodes)", portrayedBy, firstSeason, lastSeason, episodes);
+        }
 
         return eindString;
     }
 }
-// addtitle fixen, tostring mooi maken (niet printen als het leeg is)
+// addtitle fixen
