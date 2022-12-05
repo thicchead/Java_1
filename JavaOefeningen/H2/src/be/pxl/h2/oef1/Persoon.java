@@ -35,7 +35,7 @@ public class Persoon {
     }
 
     public double berekenBmi() {
-        return gewicht / (lengte* lengte);
+        return gewicht / (lengte * lengte);
     }
 
     public String geefOmschrijving() {
@@ -53,16 +53,19 @@ public class Persoon {
         }
     }
 
-    public void voegVoornamenToe(String voornaam) {
-        this.voornaam += " " + voornaam;
+    public void voegVoornamenToe(String[] voornamen) { // je moet meerdere in een keer kunnen toevoegen
+        for (String naam : voornamen) {
+            this.voornaam += " " + naam;
+        }
     }
 
     public void groei() {
-        setLengte(this.lengte += 0.01);
+        // setLengte(this.lengte += 0.01); veel beter, anders dubbele code
+        groei(1);
     }
 
     public void groei(int aantalCm) {
-        setLengte(this.lengte += aantalCm / 100.0);
+        setLengte(this.lengte + aantalCm / 100.0);
     }
 
     public void setVoornaam(String voornaam) {
