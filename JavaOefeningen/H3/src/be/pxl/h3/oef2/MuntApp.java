@@ -16,14 +16,15 @@ public class MuntApp {
         munten.add(euro);
 
         for (Munt munt : munten) {
-            System.out.println((double)Math.round(munt.getKoers() * Math.pow(10, Munt.getAfronding())) / Math.pow(10, Munt.getAfronding()) + " " + munt.getNaam());
+            System.out.println(Math.round(munt.getKoers() * Math.pow(10, Munt.getAfronding())) / Math.pow(10, Munt.getAfronding()) + " " + munt.getNaam());
         }
-        double koersEersteMunt = euro.getKoers() / munten.get(0).getKoers();
 
-        System.out.println("Overzicht koersen tov " + munten.get(0).getNaam() + ": " + munten.get(0).getKoers() * koersEersteMunt + " " + munten.get(0).getNaam());
+        double koersEersteMunt = euro.getKoers() / munten.get(0).getKoers();
+        System.out.println("Overzicht koersen tov " + munten.get(0).getNaam() + ": " + Math.round(munten.get(0).getKoers() * Math.pow(10, Munt.getAfronding()) * koersEersteMunt) / Math.pow(10, Munt.getAfronding()) + " " + munten.get(0).getNaam());
+        munten.remove(0);
 
         for (Munt munt : munten) {
-            System.out.println((double)Math.round(munt.getKoers() * Math.pow(10, Munt.getAfronding())) / Math.pow(10, Munt.getAfronding()) * koersEersteMunt + " " + munt.getNaam());
+            System.out.println(Math.round(munt.getKoers() * Math.pow(10, Munt.getAfronding()) * koersEersteMunt) / Math.pow(10, Munt.getAfronding()) + " " + munt.getNaam());
         }
 
     }
