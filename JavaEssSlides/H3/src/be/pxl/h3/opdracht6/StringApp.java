@@ -21,16 +21,14 @@ public class StringApp {
         String tekst1 = "hoi";
         System.out.println(tekst.equals(tekst1));
 
+        int midden = tekst.length() / 2;
+        String einde = tekst.substring(midden + 1, tekst.length());
 
-        double midden = tekst.length() / 2.0;
-        String middelsteLetters;
-
-        if (midden / 1.0 != 1) {
-            middelsteLetters = tekst.substring((int)midden - 1, (int)midden + 1);
+        if (tekst.length() % 2 != 0) {
+            System.out.println(tekst.substring(0, midden) + tekst.substring(midden, midden + 1).toUpperCase() + einde);
         } else {
-            middelsteLetters = tekst.substring((int) midden);
+            System.out.println(tekst.substring(0, midden - 1) + tekst.substring(midden - 1, midden + 1).toUpperCase() + einde);
         }
-        System.out.println(midden);
-        System.out.println(middelsteLetters);
+
     }
 }
