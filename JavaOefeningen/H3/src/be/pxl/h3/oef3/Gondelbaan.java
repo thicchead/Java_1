@@ -3,14 +3,14 @@ package be.pxl.h3.oef3;
 public class Gondelbaan {
     private String naam;
     private String land;
-    private double hoogteDalstation;
-    private double hoogteBergstation;
+    private int hoogteDalstation;
+    private int hoogteBergstation;
     private double lengte;
-    private double snelheid;
+    private int snelheid;
     private int passagiersPerGondel;
     private static int aantalGondels;
 
-    public Gondelbaan(String naam, String land, double lengte, double snelheid) {
+    public Gondelbaan(String naam, String land, double lengte, int snelheid) {
         setNaam(naam);
         setLand(land);
         setLengte(lengte);
@@ -23,11 +23,16 @@ public class Gondelbaan {
     }
 
     public double getDuur() {
-        return (getHoogteDalstation() - getHoogteBergstation()) / snelheid;
+        return (lengte * 1000 / snelheid) / 60;
     }
 
     public int getVervoersCapaciteit() {
         return (int)((60 * getAantalGondels() * passagiersPerGondel) / getDuur());
+
+    }
+
+    public String toString() {
+        return String.format("%s [%dm]", getNaam(), Math.round(getHoogteVerschil()));
     }
 
     public String getNaam() {
@@ -35,7 +40,15 @@ public class Gondelbaan {
     }
 
     public void setNaam(String naam) {
-        this.naam = naam;
+        naam = naam.toLowerCase();
+
+        String[] naamApart = naam.split(" ");
+        StringBuilder juisteNaam = new StringBuilder();
+
+        for (String x : naamApart) {
+            juisteNaam.append(Character.toUpperCase(x.charAt(0))).append(x.substring(1)).append(" ");
+        }
+        this.naam = juisteNaam.toString().trim();
     }
 
     public String getLand() {
@@ -43,36 +56,32 @@ public class Gondelbaan {
     }
 
     public void setLand(String land) {
-        String[] landen = {"\"Frankrijk\", \"Oostenrijk\", \"Zwitserland\", \"Italië\""};
-        for (String x : landen) {
-            if (!x.equals(land)) {
-                this.land = "Onbekend";
-            } else {
+        String[] landen = {"Frankrijk", "Oostenrijk", "Zwitserland", "Italië"};
+
+        for (String s : landen) {
+            if (land.equals(s)) {
                 this.land = land;
+                break;
+            } else {
+                this.land = "Onbekend";
             }
         }
     }
 
-    public void setHoogte(double h1, double h2) {
-        double hoogsteWaarde = h1;
-        double laagsteWaarde = h2;
-        if (h2 > h1) {
-            hoogsteWaarde = h2;
-            laagsteWaarde = h1;
-        }
-        this.hoogteBergstation = hoogsteWaarde;
-        this.hoogteDalstation = laagsteWaarde;
+    public void setHoogte(int h1, int h2) {
+        this.hoogteBergstation = Math.max(h1, h2);
+        this.hoogteDalstation = Math.min(h1, h2);
     }
 
-    public double getHoogteVerschil() {
+    public int getHoogteVerschil() {
         return getHoogteBergstation() - getHoogteDalstation();
     }
 
-    public double getHoogteDalstation() {
+    public int getHoogteDalstation() {
         return hoogteDalstation;
     }
 
-    public double getHoogteBergstation() {
+    public int getHoogteBergstation() {
         return hoogteBergstation;
     }
 
@@ -84,17 +93,17 @@ public class Gondelbaan {
         this.lengte = lengte;
     }
 
-    public double getSnelheid() {
+    public int getSnelheid() {
         return snelheid;
     }
 
-    public void setSnelheid(double snelheid) {
+    public void setSnelheid(int snelheid) {
         if (snelheid < 3) {
             this.snelheid = 3;
-        } else if (snelheid > 8) {
-            this.snelheid = 8;
-        } else {
+        } else if (snelheid < 8) {
             this.snelheid = snelheid;
+        } else {
+            this.snelheid = 8;
         }
     }
 
@@ -106,7 +115,9 @@ public class Gondelbaan {
         this.passagiersPerGondel = passagiersPerGondel;
     }
 
-
+    public static void setAantalGondels(int aantalGondels) {
+        Gondelbaan.aantalGondels = aantalGondels;
+    }
 
     public static int getAantalGondels() {
         return aantalGondels;
