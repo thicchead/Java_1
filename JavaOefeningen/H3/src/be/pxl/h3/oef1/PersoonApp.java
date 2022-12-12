@@ -59,8 +59,8 @@ public class PersoonApp {
         Random random = new Random();
         Persoon persoon = new Persoon();
 
-        persoon.setGewicht(random.nextDouble(100 - 40 + 1) + 40);
-        persoon.setLengte(1.57 + (2.10 - 1.57) * random.nextDouble());
+        persoon.setGewicht(random.nextDouble(100 - 40 + 1) + 40); // nextDouble * 61 + 40
+        persoon.setLengte(1.58 + (2.10 - 1.58) * random.nextDouble()); // nextDouble * 0.52 + 1.58
         persoon.setVoornaam("Metehan");
         persoon.setNaam("Karakoruk");
 

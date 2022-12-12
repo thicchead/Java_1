@@ -9,21 +9,28 @@ public class Persoon {
     private double lengte;
     private double gewicht;
     private LocalDate geboortejaar;
+    // geen constructor --> oproepen met functies (.now(), .of(), ...)
+    // static methodes --> oproepen met LocalDate, niet met een variabele
+
     private static final double MAX_LENGTE = 2.4;
+
     // opdracht8
     public Persoon() {
         this("onbekend", "onbekend"); // opdracht 9
     }
+
     public Persoon(String n, String vn) { // opdracht 8  BASISCONSTRUCTOR
         setNaam(n);
         setVoornaam(vn);
     }
+
     public Persoon(Persoon p) { // opdracht 8
         this(p.naam, p.voornaam);
         setLengte(p.lengte);
         setGewicht(p.gewicht);
         setGeboortejaar(p.geboortejaar);
     }
+
     // opdracht4
     public void setVoornaam(String voornaam) {
         this.voornaam = voornaam;
@@ -43,7 +50,7 @@ public class Persoon {
 
     @Override
     public String toString() {
-        StringBuilder string = new StringBuilder();
+        StringBuilder string = new StringBuilder("Deze persoon is "); // staat er al in
         int jaar;
 
         if (this.geboortejaar == null) {
@@ -52,8 +59,10 @@ public class Persoon {
             jaar = this.geboortejaar.getYear();
         }
 
-        string.append("Deze persoon is " + Character.toUpperCase(voornaam.charAt(0)) + voornaam.substring(1).toLowerCase() + " " +
-                Character.toUpperCase(naam.charAt(0)) + naam.substring(1).toLowerCase() + "\n");
+        string.append(voornaam.toUpperCase());
+        string.append(" ");
+        string.append(naam.toUpperCase());
+        string.append(String.format("%n"));
         string.append(String.format("%-15s : %.2f%n", "gewicht", this.gewicht));
         string.append(String.format("%-15s : %.2f%n", "lengte", this.lengte));
         string.append(String.format("%-15s : %d%n", "geboortejaar", jaar));
@@ -87,9 +96,10 @@ public class Persoon {
         alleVoornamen.append(this.voornaam);
 
         for (String vn : voornamen) {
-            alleVoornamen.append(" " + vn + " ");
+            alleVoornamen.append(vn);
+            alleVoornamen.append(" ");
         }
-        this.voornaam = alleVoornamen.toString().trim();
+        this.voornaam = alleVoornamen.toString();
     }
 
     // opdracht5
@@ -139,19 +149,21 @@ public class Persoon {
 
     public String geefNaamAfgekort() {
         StringBuilder afgekorteNaam = new StringBuilder();
-        afgekorteNaam.append(Character.toUpperCase(voornaam.charAt(0)) + ". ");
-        afgekorteNaam.append(Character.toUpperCase(naam.charAt(0)) + naam.substring(1).toLowerCase());
+        afgekorteNaam.append(Character.toUpperCase(voornaam.charAt(0))).append(". ");
+        afgekorteNaam.append(Character.toUpperCase(naam.charAt(0))).append(naam.substring(1).toLowerCase());
 
         return afgekorteNaam.toString();
     }
 
     public String encrypteerNaam(int getal) {
-        String heleNaam = getVoornaam() + getNaam();
+        String heleNaam = geefNaamAfgekort();
         StringBuilder encrypteerdeNaam = new StringBuilder();
 
         for (int i = 0; i < heleNaam.length(); i++) {
             encrypteerdeNaam.append( (char) (heleNaam.charAt(i) + getal));
         }
+        // ipv casten, toCharArray gebruiken
+        // for char c : heleNaam.toCharArray()
         
         return encrypteerdeNaam.toString();
     }

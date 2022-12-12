@@ -13,6 +13,7 @@ public class Munt {
     public Munt(String naam, double koers) {
         setNaam(naam);
         setKoers(koers);
+        aantal++;
     }
 
     public String getNaam() {
@@ -29,6 +30,8 @@ public class Munt {
 
     public void setKoers(double koers) {
         this.koers = koers;
+        // = round(koers * 10^afronding / 10^afronding)
+        // --> wat ik in de main heb
     }
 
     public static int getAantal() {

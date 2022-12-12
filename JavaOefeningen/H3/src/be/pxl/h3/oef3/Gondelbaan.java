@@ -8,14 +8,13 @@ public class Gondelbaan {
     private double lengte;
     private int snelheid;
     private int passagiersPerGondel;
-    private static int aantalGondels;
+    private int aantalGondels;
 
     public Gondelbaan(String naam, String land, double lengte, int snelheid) {
         setNaam(naam);
         setLand(land);
         setLengte(lengte);
         setSnelheid(snelheid);
-        aantalGondels++;
     }
 
     public Gondelbaan(String naam, String land) {
@@ -28,7 +27,6 @@ public class Gondelbaan {
 
     public int getVervoersCapaciteit() {
         return (int)((60 * getAantalGondels() * passagiersPerGondel) / getDuur());
-
     }
 
     public String toString() {
@@ -55,8 +53,16 @@ public class Gondelbaan {
         return land;
     }
 
+    /* private String controle(String land) {
+        for (String landJuist : landen) { // instantievariabele bovenaan
+            if (land.equals(landJuist)) {
+                return landJuist;
+            }
+        }
+        return "Onbekend";
+    } */
     public void setLand(String land) {
-        String[] landen = {"Frankrijk", "Oostenrijk", "Zwitserland", "Italië"};
+        String[] landen = {"Frankrijk", "Oostenrijk", "Zwitserland", "Italië"}; // instantievariabele private static String kan ook
 
         for (String s : landen) {
             if (land.equals(s)) {
@@ -99,12 +105,11 @@ public class Gondelbaan {
 
     public void setSnelheid(int snelheid) {
         if (snelheid < 3) {
-            this.snelheid = 3;
-        } else if (snelheid < 8) {
-            this.snelheid = snelheid;
-        } else {
-            this.snelheid = 8;
+            snelheid = 3;
+        } else if (snelheid > 8) {
+            snelheid = 8;
         }
+        this.snelheid = snelheid;
     }
 
     public int getPassagiersPerGondel() {
@@ -115,11 +120,11 @@ public class Gondelbaan {
         this.passagiersPerGondel = passagiersPerGondel;
     }
 
-    public static void setAantalGondels(int aantalGondels) {
-        Gondelbaan.aantalGondels = aantalGondels;
+    public void setAantalGondels(int aantalGondels) {
+        this.aantalGondels = aantalGondels;
     }
 
-    public static int getAantalGondels() {
+    public int getAantalGondels() {
         return aantalGondels;
     }
 }
