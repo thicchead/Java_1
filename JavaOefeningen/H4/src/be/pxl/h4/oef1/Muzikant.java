@@ -4,8 +4,6 @@ public class Muzikant {
     private String naam;
     private Instrument instrument;
 
-    public Muzikant() {}
-
     public Muzikant(String naam, Instrument instrument) {
         this.naam = naam;
         setInstrument(instrument);

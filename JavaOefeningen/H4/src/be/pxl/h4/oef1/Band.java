@@ -1,30 +1,25 @@
 package be.pxl.h4.oef1;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Band {
     private String naam;
-    ArrayList<Muzikant> leden = new ArrayList<>();
-
-    public Band() {}
+    Muzikant[] leden;
 
     public Band(String naam, Muzikant[] nieuweLeden) {
         this.naam = naam;
-        for (Muzikant lid : nieuweLeden) {
-            leden.add(lid);
-        }
+        leden = nieuweLeden;
     }
 
     public void speel(int lengte) {
         System.out.println(naam + " in concert!");
 
         Random random = new Random();
-        int randomLid = random.nextInt(leden.size());
+        int randomLid;
 
         for (int i = 0; i < lengte; i++) {
-            leden.get(randomLid).speel();
-            randomLid = random.nextInt(leden.size());
+            randomLid = random.nextInt(leden.length);
+            leden[randomLid].speel();
         }
     }
 
