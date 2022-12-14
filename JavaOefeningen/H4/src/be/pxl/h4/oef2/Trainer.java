@@ -10,9 +10,7 @@ public class Trainer {
     }
 
     public void vangPokemon(Pokemon pokemon) {
-        if (!pokedex.bevat(pokemon)) {
-            System.out.println("Deze pokemon heb je al");
-        } else {
+        if (!getPokedex().bevat(pokemon)) {
             pokedex.voegToe(pokemon);
         }
     }

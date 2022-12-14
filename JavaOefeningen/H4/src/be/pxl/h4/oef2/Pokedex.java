@@ -7,18 +7,21 @@ public class Pokedex {
         pokemon = new Pokemon[grootte];
     }
 
-    public boolean bevat(Pokemon poke) {
-        boolean isAanwezig = true;
-        for (Pokemon p : pokemon) {
-            isAanwezig = p.getNaam().equals(poke.getNaam());
+    public boolean bevat(Pokemon newPokemon) {
+        boolean plaats = false;
+        for (Pokemon value : pokemon) {
+            if (value == newPokemon) {
+                plaats = true;
+                break;
+            }
         }
-        return isAanwezig;
+        return plaats;
     }
 
     public void voegToe(Pokemon poke) {
-        for (Pokemon allP : pokemon) {
-            if (allP == null) {
-                allP = poke;
+        for (int i = 0; i < pokemon.length; i++) {
+            if (pokemon[i] == null) {
+                pokemon[i] = poke;
                 break;
             }
         }
@@ -28,7 +31,9 @@ public class Pokedex {
         StringBuilder builder = new StringBuilder();
 
         for (Pokemon poke : pokemon) {
-            builder.append("- ").append(poke.toString());
+            if (poke != null) {
+                builder.append("- ").append(poke).append("\n");
+            }
         }
         return builder.toString();
     }

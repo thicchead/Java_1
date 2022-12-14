@@ -4,6 +4,10 @@ public class Pokemon {
     private String naam;
     private String type;
 
+    public String toString() {
+        return naam + " (" + type + ")";
+    }
+
     public Pokemon(String naam, String type) {
         this.naam = naam;
         this.type = type;
@@ -17,7 +21,4 @@ public class Pokemon {
         return type;
     }
 
-    public String toString() {
-        return naam + " (" + type + ")";
-    }
 }
