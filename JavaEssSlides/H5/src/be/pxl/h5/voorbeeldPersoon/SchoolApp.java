@@ -52,16 +52,36 @@ public class SchoolApp {
         //student3.print();
 
         Lector lector1 = new Lector("Kara", "Metje", "12100606", 75, 3000);
-        lector1.print();
+        //lector1.print();
 
         System.out.println("***********");
 
         Lector lector2 = new Lector("K", "M", 30, 2500);
-        lector2.print();
+        //lector2.print();
 
         System.out.println("***********");
 
         Lector lector3 = new Lector();
-        lector3.print();
+        //lector3.print();
+
+        System.out.println(Persoon.getAantal());
+        System.out.println(Student.getAantal());
+        System.out.println(Lector.getAantal());
+
+        /*Student sena = new Student("Sengul", "Sena", "67", "Tandheelkunde", 140);
+
+        System.out.println(sena.getVoornaam());
+
+        System.out.println(sena.getVoornaam() + " is slecht in typen");
+        sena.print();
+
+        Student nisa = new Student("Sengul", "Nisa");
+        nisa.print();
+
+        Student erdem = new Student();
+        erdem.print();
+
+        Student kopieNisa = new Student(nisa);
+        kopieNisa.print();*/
     }
 }

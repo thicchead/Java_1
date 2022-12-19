@@ -3,12 +3,14 @@ package be.pxl.h5.voorbeeldPersoon;
 public class Persoon {
     private String naam;
     private String voornaam;
+    private static int aantal;
 
     public Persoon() {}
 
     public Persoon(String naam, String  voornaam) {
         setNaam(naam);
         setVoornaam(voornaam);
+        aantal++;
     }
 
     public void print() {
@@ -29,5 +31,9 @@ public class Persoon {
 
     public void setVoornaam(String voornaam) {
         this.voornaam = voornaam;
+    }
+
+    public static int getAantal() {
+        return aantal;
     }
 }

@@ -4,6 +4,7 @@ public class Student extends Persoon{
     private int leerkrediet;
     private String studentnummer;
     private String opleiding;
+    private static int aantal;
 
     public Student() {
         this("onbekend", "onbekend", "15999999", "XXX", 140);
@@ -18,6 +19,7 @@ public class Student extends Persoon{
         setStudentnummer(studentnummer);
         setOpleiding(opleiding);
         setLeerkrediet(leerkrediet);
+        aantal++;
     }
 
     public Student(Student origStudent) {
@@ -60,5 +62,9 @@ public class Student extends Persoon{
 
     public void setOpleiding(String opleiding) {
         this.opleiding = opleiding;
+    }
+
+    public static int getAantal() {
+        return aantal;
     }
 }

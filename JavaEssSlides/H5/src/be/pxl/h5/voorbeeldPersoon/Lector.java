@@ -4,6 +4,7 @@ public class Lector extends Persoon{
     private String persooneelsnummer;
     private double aanstellingsPercentage;
     private double salaris;
+    private static int aantal;
 
     public Lector() {
         this("onbekend", "onbekend", "20009999", 100, 2000);
@@ -18,6 +19,7 @@ public class Lector extends Persoon{
         setPersooneelsnummer(persooneelsnummer);
         setAanstellingsPercentage(aanstellingsPercentage);
         setSalaris(salaris);
+        aantal++;
     }
 
     public void print() {
@@ -59,5 +61,9 @@ public class Lector extends Persoon{
 
     public void setSalaris(double salaris) {
         this.salaris = salaris;
+    }
+
+    public static int getAantal() {
+        return aantal;
     }
 }
