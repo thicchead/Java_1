@@ -2,14 +2,13 @@ package be.pxl.h6.opdracht;
 
 public enum Dag {
     MAANDAG, DINSDAG, WOENSDAG, DONDERDAG, VRIJDAG, ZATERDAG, ZONDAG;
+    private boolean weekend;
 
-    public void weekendDag(Dag dag) {
-        if (dag == Dag.ZONDAG || dag == Dag.ZATERDAG) {
-            System.out.println("weekend");
-        } else {
-            System.out.println("midweek");
-        }
+    public void isWeekend(Dag dag) {
+        weekend = dag == Dag.ZONDAG || dag == Dag.ZATERDAG;
     }
 
-
+    public boolean isWeekend() {
+        return weekend;
+    }
 }
